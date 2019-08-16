@@ -1,0 +1,7 @@
+.results-list {
+    order: 2;
+    height:auto;
+    max-height: 100%;
+    margin: 0.5em;
+    overflow: auto;
+}

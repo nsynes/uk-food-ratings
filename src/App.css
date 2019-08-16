@@ -1,0 +1,21 @@
+.app {
+    display: flex;
+    flex-flow: row;
+}
+.box-one {
+    order: 1;
+    flex: 0 0 20%;
+    min-width: 300px;
+    height: 100%;
+}
+.box-two {
+    order: 2;
+    flex: 1;
+    width: 100%;
+}
+.box-one-flex {
+    display: flex;
+    flex-flow: column;
+    max-height: 100vh;
+    overflow: none;
+}
