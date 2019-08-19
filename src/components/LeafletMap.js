@@ -60,9 +60,11 @@ class Map extends React.Component {
 
         const markers = [];
         const { restaurants } = this.props;
+        const dateOptions = {year:'numeric', month:'short',day:'numeric'};
 
         restaurants.forEach((restaurant) => {
             const rating = parseInt(restaurant.rating) ? `${restaurant.rating} / 5` : restaurant.rating;
+            const ratingDate = parseInt(restaurant.rating) ? new Date(restaurant.ratingDate).toLocaleString('en-GB', dateOptions) : 'NA';
             markers.push(
                 <Marker
                     position={[restaurant.geocode.latitude, restaurant.geocode.longitude]}
@@ -84,6 +86,8 @@ class Map extends React.Component {
                                 {rating}
                             </a>
                         </b>
+                        <br/>
+                        <b>Inspection Date:</b> {ratingDate}
                         </Popup>
                 </Marker>
             );

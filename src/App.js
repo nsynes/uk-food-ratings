@@ -78,7 +78,7 @@ class App extends React.Component {
         const centerLat = (_northEast.lat + _southWest.lat) / 2;
 
         // API sorting options: "sortOptionKey"=["Relevance","rating","desc_rating","alpha","desc_alpha","Distance"]
-        const url = `${API_URL_search}?name=${searchQuery}&longitude=${centerLon}&latitude=${centerLat}&maxDistanceLimit=${Math.ceil(mapRadius)}&sortOptionKey=alpha&pageNumber=1&pageSize=1000`;
+        const url = `${API_URL_search}?name=${searchQuery}&longitude=${centerLon}&latitude=${centerLat}&maxDistanceLimit=${Math.ceil(mapRadius)}&sortOptionKey=alpha&pageNumber=1&pageSize=500`;
         console.log('API url',url)
 
         fetch(url, options)
@@ -91,7 +91,7 @@ class App extends React.Component {
                 //        establishment.geocode.latitude < _northEast.lat && establishment.geocode.longitude < _northEast.lng ?
                 //        true: false;})
                 .map(estab => {
-                    const rating = parseInt(estab.RatingValue);
+                    const rating = parseInt(estab.RatingValue, 10);
                     const ratingColour = rating <= 5 ? MARKER_COLOURS[rating] : '#a9a9a9';
                     const address = [estab.AddressLine1,estab.AddressLine2,estab.AddressLine3].filter(Boolean).join(', ')
 
