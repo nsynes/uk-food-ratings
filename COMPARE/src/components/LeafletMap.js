@@ -9,12 +9,11 @@ class Map extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            resized: false,
-            height: window.innerHeight
+            resized: false
         }
     }
 
-    onBoundsChange = (e) => {
+    onBoundsChange = () => {
         this.getBounds();
     }
 
@@ -38,7 +37,6 @@ class Map extends React.Component {
    }
 
    componentDidMount = () => {
-       this.getBounds();
         window.addEventListener("resize", (e) => {
             this.setState({resized: true})
         });
@@ -92,8 +90,8 @@ class Map extends React.Component {
         return (
             <LeafletMap
                 ref='map'
-                style={{height: this.state.height}}
-                center={[55, -3]}
+                style={{height: window.innerHeight}}
+                center={[55.8, -3]}
                 zoom={6}
                 maxZoom={19}
                 attributionControl={true}
@@ -103,10 +101,11 @@ class Map extends React.Component {
                 dragging={true}
                 animate={true}
                 easeLinearity={0.35}
+                onZoomEnd={this.onBoundsChange}
                 onMoveEnd={this.onBoundsChange}>
                 <LocateControl />
                 <TileLayer
-                    url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
+                    url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
                 />
                 {markers}
             </LeafletMap>

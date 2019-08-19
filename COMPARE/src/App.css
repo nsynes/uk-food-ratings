@@ -2,7 +2,6 @@
     .app {
         display: flex;
         flex-flow: row;
-        overflow: hidden;
     }
     .box-one {
         order: 1;
@@ -13,13 +12,11 @@
     .box-two {
         order: 2;
         flex: 1;
-        overflow: hidden;
     }
 }
 @media all and (max-width: 800px) {
     .app {
-        height: 100%;
-        overflow: hidden;
+        height: 100%
     }
     .box-one {
         width: 100%;
@@ -29,6 +26,5 @@
         width: 100%;
         top: 0;
         left: 0;
-        overflow: hidden;
     }
 }

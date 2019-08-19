@@ -1,0 +1,12 @@
+.results-list {
+    order: 3;
+    height: auto;
+    max-height: calc(100%-2em);
+    margin: 0 0 0 0.25em;
+    overflow: auto;
+}
+@media all and (max-width: 800px) {
+    .results-list {
+        display: none;
+    }
+}

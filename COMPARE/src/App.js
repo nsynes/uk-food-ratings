@@ -65,11 +65,10 @@ class App extends React.Component {
                 'x-api-version': 2
             })
         }
-
         const { _northEast, _southWest } = this.state.mapBounds;
         const { mapRadius } = this.state;
         const centerLon = (_northEast.lng + _southWest.lng) / 2;
-        const centerLat = (_northEast.lat + _southWest.lat) / 2;
+        const centerLat = (_northEast.lat+_southWest.lat) / 2;
 
         // API sorting options: "sortOptionKey"=["Relevance","rating","desc_rating","alpha","desc_alpha","Distance"]
         const url = `${API_URL_search}?name=${searchQuery}&longitude=${centerLon}&latitude=${centerLat}&maxDistanceLimit=${Math.ceil(mapRadius)}&sortOptionKey=alpha&pageNumber=1&pageSize=1000`;
