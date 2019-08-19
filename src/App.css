@@ -1,21 +1,30 @@
-.app {
-    display: flex;
-    flex-flow: row;
+@media all and (min-width: 801px) {
+    .app {
+        display: flex;
+        flex-flow: row;
+    }
+    .box-one {
+        order: 1;
+        flex: 0 0 20%;
+        min-width: 300px;
+        height: 100%;
+    }
+    .box-two {
+        order: 2;
+        flex: 1;
+    }
 }
-.box-one {
-    order: 1;
-    flex: 0 0 20%;
-    min-width: 300px;
-    height: 100%;
-}
-.box-two {
-    order: 2;
-    flex: 1;
-    width: 100%;
-}
-.box-one-flex {
-    display: flex;
-    flex-flow: column;
-    max-height: 100vh;
-    overflow: none;
+@media all and (max-width: 800px) {
+    .app {
+        height: 100%
+    }
+    .box-one {
+        width: 100%;
+    }
+    .box-two {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
 }

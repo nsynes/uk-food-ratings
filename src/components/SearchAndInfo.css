@@ -1,0 +1,18 @@
+.box-one-flex {
+    display: flex;
+    flex-flow: column;
+    max-height: 100vh;
+}
+@media all and (min-width: 801px) {
+    .box-one-flex {
+        margin: 0;
+    }
+}
+@media all and (max-width: 800px) {
+    .box-one-flex {
+        background-color: white;
+        margin: 10px 1.5em 0 4em;
+        max-width: 400px;
+        min-width: 250px;
+    }
+}

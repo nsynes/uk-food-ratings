@@ -4,7 +4,11 @@ import './InfoItem.css';
 class Info extends React.Component {
 
     handleMouseEnter = () => {
-        this.props.onMouseEnter(this.props.FHRSID);
+        //console.log('enter', this.props.FHRSID);
+    }
+
+    handleMouseLeave = () => {
+        //console.log('leave', this.props.FHRSID);
     }
 
     render() {
@@ -19,7 +23,8 @@ class Info extends React.Component {
             <div
                 className='info-item'
                 style={divStyle}
-                onMouseEnter={this.handleMouseEnter}>
+                onMouseEnter={this.handleMouseEnter}
+                onMouseLeave={this.handleMouseLeave}>
                 <span
                     className='dot'
                     style={{backgroundColor: ratingColour}}>

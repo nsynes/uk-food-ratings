@@ -12,20 +12,25 @@ class Search extends React.Component {
     }
 
     handleClick = (event) => {
-        this.props.handleSearchQueryChange(this.searchInput.current.value)
-    };
+        if(event.key === 'Enter' || !event.key ) {
+            this.props.handleSearchQueryChange(this.searchInput.current.value)
+        }
+    }
 
     render() {
+
         return (
-            <form className='search-container' onSubmit={this.handleSubmitQuery}>
+            <div className="search-container">
                 <input
                     className="search-input"
                     ref={this.searchInput}
                     type="text"
-                    placeholder="keywords"
-                />
-                <button onClick={this.handleClick}>Search</button>
-            </form>
+                    placeholder="keywords or leave empty"
+                    onKeyPress={this.handleClick}/>
+                <span
+                    className="search-icon"
+                    onClick={this.handleClick}/>
+            </div>
         );
     };
 
