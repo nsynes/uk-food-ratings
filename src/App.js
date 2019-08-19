@@ -42,6 +42,12 @@ class App extends React.Component {
         })
     }
 
+    /*componentDidMount = () => {
+        this.setState({
+            restaurants: this.props.restaurants
+        })
+    }*/
+
     getMiles(metres) {
         return metres*0.000621371192;
    }

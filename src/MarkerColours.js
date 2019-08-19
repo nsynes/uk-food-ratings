@@ -1,1 +1,1 @@
-export const MARKER_COLOURS = ['#D2222D','#D2222D','#D2222D','#FFBF00','#62BB46','#007000'];
+export const MARKER_COLOURS = ['#8B0000','#D2222D','#FFBF00','#EEEE00','#62BB46','#007000'];
