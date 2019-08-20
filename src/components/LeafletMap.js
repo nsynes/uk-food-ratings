@@ -63,8 +63,8 @@ class Map extends React.Component {
         const dateOptions = {year:'numeric', month:'short',day:'numeric'};
 
         restaurants.forEach((restaurant) => {
-            const rating = parseInt(restaurant.rating) ? `${restaurant.rating} / 5` : restaurant.rating;
-            const ratingDate = parseInt(restaurant.rating) ? new Date(restaurant.ratingDate).toLocaleString('en-GB', dateOptions) : 'NA';
+            const rating = !isNaN(parseInt(restaurant.rating)) ? `${restaurant.rating} / 5` : restaurant.rating;
+            const ratingDate = !isNaN(parseInt(restaurant.rating)) ? new Date(restaurant.ratingDate).toLocaleString('en-GB', dateOptions) : 'NA';
             markers.push(
                 <Marker
                     position={[restaurant.geocode.latitude, restaurant.geocode.longitude]}
@@ -75,17 +75,17 @@ class Map extends React.Component {
                         <b>{restaurant.name}</b>
                         <br/>
                         {restaurant.address},
+                        <br/>{restaurant.postCode}
                         <br/>
-                        {restaurant.postCode}
                         <br/>
-                        <br/>
-                        <b>
-                            Rating: <a href={`https://ratings.food.gov.uk/business/en-GB/${restaurant.FHRSID}`}
+                        <b><a href={`https://ratings.food.gov.uk/business/en-GB/${restaurant.FHRSID}`}
                                         target='_blank'
-                                        rel="noopener noreferrer">
-                                {rating}
+                                        rel="noopener noreferrer"
+                                        className="rating-link"
+                                        style={{ backgroundColor: restaurant.ratingColour }}>Rating: {rating}
                             </a>
                         </b>
+                        <br/>
                         <br/>
                         <b>Inspection Date:</b> {ratingDate}
                         </Popup>
