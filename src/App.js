@@ -78,7 +78,7 @@ class App extends React.Component {
         const centerLat = (_northEast.lat + _southWest.lat) / 2;
 
         // API sorting options: "sortOptionKey"=["Relevance","rating","desc_rating","alpha","desc_alpha","Distance"]
-        const url = `${API_URL_search}?name=${searchQuery}&longitude=${centerLon}&latitude=${centerLat}&maxDistanceLimit=${Math.ceil(mapRadius)}&sortOptionKey=alpha&pageNumber=1&pageSize=500`;
+        const url = `${API_URL_search}?name=${searchQuery}&longitude=${centerLon}&latitude=${centerLat}&maxDistanceLimit=${Math.ceil(mapRadius)}&sortOptionKey=alpha&pageNumber=1&pageSize=200`;
         console.log('API url',url)
 
         fetch(url, options)
